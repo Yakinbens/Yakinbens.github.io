@@ -1,5 +1,47 @@
 <!DOCTYPE html>
 <html lang="fr" class="scroll-smooth">
+    <style>
+  @media print {
+    /* Forcer l'affichage de toutes les modales (les descriptions cachées) */
+    div[id^="modal-"] {
+      display: block !important;
+      position: relative !important;
+      background: none !important;
+      z-index: auto !important;
+      margin-top: 15px !important;
+      margin-bottom: 40px !important;
+      padding: 0 !important;
+    }
+    
+    /* Cacher le fond flou/noir des fenêtres popup */
+    div[id^="modal-"] > div.fixed, div[id^="modal-"] .backdrop-blur-sm {
+      display: none !important;
+    }
+
+    /* Mettre le texte en pleine largeur pour l'impression, sans bordures popup */
+    div[id^="modal-"] .relative {
+      max-width: 100% !important;
+      max-height: none !important;
+      overflow: visible !important;
+      transform: none !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      border-left: 4px solid #4f46e5 !important; /* Petite ligne bleue stylée sur le côté */
+      padding-left: 20px !important;
+    }
+
+    /* Cacher les boutons "Fermer" (inutiles sur du papier) */
+    button {
+      display: none !important;
+    }
+    
+    /* Empêcher que le texte d'un projet soit coupé en plein milieu d'une page */
+    div[id^="modal-"] {
+      page-break-inside: avoid !important;
+    }
+  }
+</style>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
